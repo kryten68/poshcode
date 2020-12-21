@@ -8,9 +8,7 @@ function new-azcredentialobject {
         [string] $password
     )
 
-    [securestring] $secure_password = ConvertTo-SecureString `
-        -String $default_client_secret `
-        -AsPlainText -Force
+    [securestring] $secure_password = $password | ConvertTo-SecureString
 
     [pscredential] $credential = new-object System.Management.Automation.PSCredential($default_client_username, $secure_password)
 

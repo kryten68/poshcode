@@ -2,9 +2,9 @@
     #credentials
     azure_basics =@{
         resource_group = 'apps'
-        tenant_id = '{{tenant-id}}'
-        default_client_id = '{{client-application-id}}'
-        default_client_secret = '{{client-secret}}'
+        tenant_id = 'cf933758-c824-45d3-a465-d31e6f5b002c'
+        default_client_id = 'e395717f-230e-445e-be68-0a7e04e424fb'
+        default_client_secret = 'cred.txt'
     }
 
     #secrets

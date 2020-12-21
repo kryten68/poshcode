@@ -1,12 +1,13 @@
 Clear-Host
 
 # .1    Import the config and required dependencies
-$config = Import-PowerShellDataFile -path "$(get-location)/config.psd1"
-import-module -name "$(get-location)/utils.psm1" -force
+$config = Import-PowerShellDataFile -path "$(get-location)\config.psd1"
+import-module -name "$(get-location)\utils.psm1" -force
 
 # .2    Create a credential object from the config file values
 $default_client_username = $config.azure_basics.default_client_id
-$default_client_secret = $config.azure_basics.default_client_secret
+$default_client_secret_path = $PSScriptRoot + "\" + $config.azure_basics.default_client_secret
+$default_client_secret = Get-Content -Path $default_client_secret_path
 $default_credential = new-azcredentialobject -username $default_client_username -password $default_client_secret
 
 # .3    Connect to Az as the default client
@@ -20,7 +21,7 @@ Write-Output "Connected to Az......"
 # .4 Attempt to test the logic app deployment
 $template_test_status = Test-AzResourceGroupDeployment  `
     -ResourceGroupName $config.azure_basics.resource_group `
-    -TemplateFile "$(get-location)/template.json" `
+    -TemplateFile "$(get-location)\template.json" `
     -Verbose
 
 if ( $template_test_status -ne $null) {
