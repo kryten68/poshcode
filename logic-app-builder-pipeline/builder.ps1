@@ -18,7 +18,7 @@ Connect-AzAccount -credential $default_credential `
 
 Write-Output "Connected to Az......"
 
-# .4 Attempt to test the logic app deployment
+# .4    Attempt to test the logic app deployment
 $template_test_status = Test-AzResourceGroupDeployment  `
     -ResourceGroupName $config.azure_basics.resource_group `
     -TemplateFile "$(get-location)\template.json" `

@@ -1,6 +1,6 @@
 <#
     -- Poison Module For Powershell
-	
+
 #>
 
 # Globals
@@ -44,10 +44,8 @@ function add-elementtoposhobject {
 # Converts poshobject to json string
 function jsonify-poshobject {
     Param(
-
         [Parameter(position=0)]
         [PSCustomObject] $object
-
     )
 
     return ConvertTo-Json -InputObject $object
