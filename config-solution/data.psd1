@@ -1,6 +1,6 @@
 @{
     # values
-    'tenant_id' = '{{tenant-d}}'
+    'tenant_id' = '{{tenant-id}}'
     'client_id' = '{{client-id}}'
 
         # Passwords
